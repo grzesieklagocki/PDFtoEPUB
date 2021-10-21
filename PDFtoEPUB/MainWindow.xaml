@@ -1,0 +1,25 @@
+﻿<mah:MetroWindow x:Class="PDFtoEPUB.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PDFtoEPUB"
+        xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        mc:Ignorable="d"
+        DataContext="{Binding Main, Source={StaticResource Locator}}"
+        Title="MainWindow" Height="450" Width="800">
+    <StackPanel>
+        <Button Margin="5" Style="{DynamicResource MahApps.Styles.Button.Flat}" Command="">
+            <TextBlock Text="Drag&amp;drop PDF file or click to select"/>
+        </Button>
+        <TextBlock Text="{Binding Text, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" />
+        <ListBox ItemsSource="{Binding PdfBitmaps}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Image Source="{Binding}" />
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </StackPanel>
+</mah:MetroWindow>
